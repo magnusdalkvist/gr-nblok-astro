@@ -1,25 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import MySidebar from "../components/MySidebar";
-import { getAllCats, getAllPets } from "../Sanity/api";
-import Pet from "../components/Pet";
-
-const pets = await getAllPets();
-const cats = await getAllCats();
-
-//create typescript type for pet with name and age
-type Pet = {
-  name: string;
-  age: number;
-  species: string;
-};
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
-    <div class="flex flex-col items-start gap-4">
-      {pets.map((pet: Pet) => <Pet name={pet.name} age={pet.age} species={pet.species} />)}
-    </div>
+    <div class="flex flex-col items-start gap-4">Forside</div>
   </main>
 </Layout>

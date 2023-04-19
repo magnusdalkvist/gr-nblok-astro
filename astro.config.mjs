@@ -15,4 +15,5 @@ export default defineConfig({
       useCdn: true,
     }),
   ],
+  output: "server",
 });

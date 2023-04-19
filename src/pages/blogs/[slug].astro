@@ -1,29 +1,10 @@
 ---
-import { useSanityClient } from "astro-sanity";
-
-export async function getStaticPaths() {
-  const blogs = await useSanityClient().fetch(`*[_type == "blogs"] {
-    ...,
-  }`);
-
-  return blogs.map(({ slug, title, image }) => {
-    return {
-      params: { slug: slug.current },
-      props: { title, image },
-    };
-  });
-}
+import { getBlog } from "../../Sanity/api";
+import RenderPortableText from "../../components/RenderPortableText";
 
 const { slug } = Astro.params;
-const { title, image } = Astro.props;
-
-export async function serverResponse({ astro }) {
-  return {
-    headers: {
-      "Cache-Control": "no-store, max-age=0",
-    },
-  };
-}
+const blog = await getBlog(slug);
 ---
 
-<h1>{title}</h1>
+<h1>{blog.title}</h1>
+<RenderPortableText content={blog.content} />
