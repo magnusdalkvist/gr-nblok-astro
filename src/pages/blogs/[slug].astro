@@ -1,0 +1,29 @@
+---
+import { useSanityClient } from "astro-sanity";
+
+export async function getStaticPaths() {
+  const blogs = await useSanityClient().fetch(`*[_type == "blogs"] {
+    ...,
+  }`);
+
+  return blogs.map(({ slug, title, image }) => {
+    return {
+      params: { slug: slug.current },
+      props: { title, image },
+    };
+  });
+}
+
+const { slug } = Astro.params;
+const { title, image } = Astro.props;
+
+export async function serverResponse({ astro }) {
+  return {
+    headers: {
+      "Cache-Control": "no-store, max-age=0",
+    },
+  };
+}
+---
+
+<h1>{title}</h1>
