@@ -4,7 +4,16 @@ import RenderPortableText from "../../components/RenderPortableText";
 
 const { slug } = Astro.params;
 const blog = await getBlog(slug);
+
+if (!blog) {
+  const error = await fetch(`${Astro.url}/404`);
+  return new Response(error.body, {
+    headers: error.headers,
+    status: 404,
+    statusText: "Not Found",
+  });
+}
 ---
 
-<h1>{blog.title}</h1>
-<RenderPortableText content={blog.content} />
+<h1>{blog?.title}</h1>
+<RenderPortableText content={blog?.content} />

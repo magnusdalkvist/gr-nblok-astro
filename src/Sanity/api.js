@@ -14,5 +14,8 @@ export async function getBlog(slug) {
   }`;
   const params = {};
   const blog = await client.fetch(query, params);
+  if (!blog) {
+    return null;
+  }
   return blog;
 }
