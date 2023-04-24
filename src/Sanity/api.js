@@ -2,7 +2,7 @@ import { useSanityClient } from "astro-sanity";
 
 export async function getBlog(slug) {
   const client = useSanityClient();
-  const query = `*[_type == "blogs" && slug.current == "${slug}"][0] {
+  const query = `*[_type == "blog" && slug.current == "${slug}"][0] {
     ...,
     content[]{
       ...,
