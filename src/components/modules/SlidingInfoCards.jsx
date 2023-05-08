@@ -2,7 +2,7 @@ export default function SlidingInfoCards({ module }) {
   console.log(module);
   return (
     <div className="w-full h-screen relative">
-      <h1>{module?.title}</h1>
+      <h2>{module?.title}</h2>
       <div className="flex">
         {module?.cards.map((card, i) => (
           <div key={i} className="">
