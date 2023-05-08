@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import RenderModules from "../components/RenderModules.jsx";
+import { getPage } from "../Sanity/api";
+
+const { slug } = Astro.params;
+const page = await getPage(slug);
+
+if (!page) {
+  const error = await fetch(`${Astro.url}/404`);
+  return new Response(error.body, {
+    headers: error.headers,
+    status: 404,
+    statusText: "Not Found",
+  });
+}
+
+console.log(page);
+---
+
+<Layout title={page.title}>
+  <RenderModules modules={page.modules} />
+</Layout>

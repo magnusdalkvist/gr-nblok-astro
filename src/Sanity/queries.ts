@@ -42,6 +42,16 @@ export const MODULE_SHOP_SECTION = groq`
   },
   `;
 
+export const MODULE_NUMBERED_INFO_LIST = groq`
+  _key,
+  _type,
+  infoList[] {
+    blocks[] {
+      ...,
+    },
+  },
+`;
+
 export const MODULES_DEFINITION = groq`
   _key,
   _type,
@@ -54,6 +64,9 @@ export const MODULES_DEFINITION = groq`
   (_type == "module.shopSection") => {
     ${MODULE_SHOP_SECTION}
   },
+  (_type == "module.numberedInfoList") => {
+    ${MODULE_NUMBERED_INFO_LIST}
+  },
 `;
 
 export const MODULES = groq`
@@ -64,6 +77,13 @@ export const MODULES = groq`
 
 export const HOME_QUERY_SANITY = groq`
 *[_type == 'home'][0] {
+  title,
+  ${MODULES},
+}
+`;
+
+export const PAGE_QUERY_SANITY = groq`
+*[_type == 'page' && slug.current == $slug ][0] {
   title,
   ${MODULES},
 }
