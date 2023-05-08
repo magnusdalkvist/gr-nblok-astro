@@ -1,5 +1,5 @@
 import { groq, useSanityClient } from "astro-sanity";
-import { HOME_QUERY_SANITY } from "./queries";
+import { HOME_QUERY_SANITY, PAGE_QUERY_SANITY } from "./queries";
 
 export async function getArticle(slug) {
   const client = useSanityClient();
@@ -30,4 +30,17 @@ export async function getHome() {
     return null;
   }
   return home;
+}
+
+export async function getPage(slug) {
+  const client = useSanityClient();
+  const query = PAGE_QUERY_SANITY;
+  const params = {
+    slug,
+  };
+  const page = await client.fetch(query, params);
+  if (!page) {
+    return null;
+  }
+  return page;
 }
