@@ -1,16 +1,18 @@
 export default function ShopSection({ module }) {
   console.log(module);
   return (
-    <div className="w-full h-screen relative">
-      <img src={module?.backgroundImage.url} alt="" />
-      <h2>{module?.title}</h2>
-      <div className="flex absolute inset-0 p-20">
+    <div className="w-full flex flex-col justify-center relative bg-lightGreen">
+      <h2 className="text-center pt-20 font-black text-7xl text-darkGreen ">{module?.title}</h2>
+      <div className="flex p-20 pt-10 gap-x-20">
         {module?.imageButtons.map((imageButton, i) => (
-          <div key={i} className="">
-            <a href={imageButton.link}>
-              <img src={imageButton.image.url} alt="" className="rounded-sm" />
+          <div key={i} className="group  relative rounded">
+            <a href={imageButton.link} className="w-full">
+              <div className="opacity-0 group-hover:opacity-40 rounded absolute inset-0 bg-darkGreen transition duration-300"></div>
+              <h3 className="opacity-0 group-hover:opacity-100 p-4 absolute z-10 bottom-0 left-0 font-bold text-2xl text-yellowAccent transition duration-300">
+                {imageButton.title}
+              </h3>
+              <img src={imageButton.image.url} alt="" className="rounded" />
             </a>
-            <h3>{imageButton.title}</h3>
           </div>
         ))}
       </div>
