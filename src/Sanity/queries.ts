@@ -93,3 +93,15 @@ export const PAGE_QUERY_SANITY = groq`
   ${MODULES},
 }
 `;
+
+export const ARTICLE_QUERY_SANITY = groq`
+*[_type == "article" && slug.current == $slug][0] {
+  ...,
+  content[]{
+    ...,
+    _type == "image" => {
+      ...,
+      asset->
+    }
+  }
+}`;
