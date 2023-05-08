@@ -13,6 +13,10 @@ module.exports = {
       "4xl": "2.441rem",
       "5xl": "3.052rem",
     },
+    borderRadius: {
+      none: "0",
+      sm: "3px",
+    },
     extend: {},
   },
   plugins: [
