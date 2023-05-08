@@ -1,10 +1,10 @@
 import { PortableText } from "@portabletext/react";
-import React from "react";
+import CustomImage from "./CustomImage";
 
 export default function RenderPortableText({ content }) {
   const myPortableTextComponents = {
     types: {
-      image: ({ value }) => <img src={value.asset.url} />,
+      image: ({ value }) => <CustomImage src={value.asset.url} />,
     },
 
     marks: {

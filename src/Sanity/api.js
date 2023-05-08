@@ -1,8 +1,9 @@
-import { useSanityClient } from "astro-sanity";
+import { groq, useSanityClient } from "astro-sanity";
+import { HOME_QUERY_SANITY } from "./queries";
 
 export async function getBlog(slug) {
   const client = useSanityClient();
-  const query = `*[_type == "blog" && slug.current == "${slug}"][0] {
+  const query = groq`*[_type == "blog" && slug.current == "${slug}"][0] {
     ...,
     content[]{
       ...,
@@ -18,4 +19,15 @@ export async function getBlog(slug) {
     return null;
   }
   return blog;
+}
+
+export async function getHome() {
+  const client = useSanityClient();
+  const query = HOME_QUERY_SANITY;
+  const params = {};
+  const home = await client.fetch(query, params);
+  if (!home) {
+    return null;
+  }
+  return home;
 }

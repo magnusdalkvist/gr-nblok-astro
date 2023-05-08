@@ -1,7 +1,22 @@
 ---
+import { getHome } from "../Sanity/api";
 import Layout from "../layouts/Layout.astro";
+import RenderModules from "../components/RenderModules.jsx";
+
+const home = await getHome();
+
+if (!home) {
+  const error = await fetch(`${Astro.url}/404`);
+  return new Response(error.body, {
+    headers: error.headers,
+    status: 404,
+    statusText: "Not Found",
+  });
+}
+
+console.log(home);
 ---
 
-<Layout title="Welcome to Astro.">
-  <div class="flex flex-col items-start gap-4">Forside</div>
+<Layout title={home.title}>
+  <RenderModules modules={home.modules} />
 </Layout>
