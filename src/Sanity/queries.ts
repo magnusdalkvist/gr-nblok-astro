@@ -39,6 +39,11 @@ export const MODULE_SHOP_SECTION = groq`
     image {
       "url": asset -> url
     },
+    title,
+    link,
+  },
+  backgroundImage {
+    "url": asset -> url
   },
   `;
 

@@ -1,5 +1,5 @@
 export default function SlidingInfoCards({ module }) {
-  console.log(module);
+  // console.log(module);
   return (
     <div className="w-full h-screen relative">
       <h2>{module?.title}</h2>
