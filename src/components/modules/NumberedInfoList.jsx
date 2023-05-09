@@ -3,7 +3,7 @@ import RenderBlocks from "../RenderBlocks";
 
 export default function NumberedInfoList({ module }) {
   return (
-    <div className="w-full h-screen relative">
+    <div className="w-full h-screen relative" datatype="numberedInfoList">
       {module?.infoList.map((info, i) => (
         <div
           key={i}

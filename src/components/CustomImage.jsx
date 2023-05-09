@@ -1,4 +1,4 @@
-export default function CustomImage({ src, quality = 80 }) {
+export default function CustomImage({ src, quality = 80, className = "" }) {
   const sizes = [
     { width: 375, size: "375w" },
     { width: 768, size: "768w" },
@@ -9,10 +9,11 @@ export default function CustomImage({ src, quality = 80 }) {
   ];
 
   // Append `?q=80&auto=format` to the CDN URL
-  const formattedSrc = `${src}?q=${quality}&auto=format`;
+  const formattedSrc = src && `${src}?q=${quality}&auto=format`;
 
   // Generate the `srcset` string based on the defined sizes and widths
-  const srcset = sizes.map((size) => `${formattedSrc}&w=${size.width} ${size.size}`).join(", ");
+  const srcset =
+    src && sizes.map((size) => `${formattedSrc}&w=${size.width} ${size.size}`).join(", ");
 
   return (
     <img
@@ -21,6 +22,7 @@ export default function CustomImage({ src, quality = 80 }) {
       //   Sizes can be added later if needed
       //   sizes="(max-width: 768px) 100vw, 50vw"
       alt="Custom Image"
+      className={className}
     />
   );
 }

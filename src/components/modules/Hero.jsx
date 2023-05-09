@@ -3,7 +3,7 @@ import RenderBlocks from "../RenderBlocks";
 
 export default function Hero({ module }) {
   return (
-    <div className="w-full h-screen relative">
+    <div className="w-full h-screen relative" datatype="hero">
       <CustomImage
         src={module?.backgroundImage?.url}
         alt=""

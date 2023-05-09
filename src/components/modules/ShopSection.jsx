@@ -3,7 +3,10 @@ import CustomImage from "../CustomImage";
 export default function ShopSection({ module }) {
   console.log(module);
   return (
-    <div className="w-full flex flex-col justify-center relative bg-lightGreen">
+    <div
+      className="w-full flex flex-col justify-center relative bg-lightGreen"
+      datatype="shopSection"
+    >
       <h2 className="text-center pt-20 font-black text-7xl text-darkGreen ">{module?.title}</h2>
       <div className="flex p-20 pb-32 pt-10 gap-x-20">
         {module?.imageButtons.map((imageButton, i) => (
