@@ -3,7 +3,7 @@ export default function ShopSection({ module }) {
   return (
     <div className="w-full flex flex-col justify-center relative bg-lightGreen">
       <h2 className="text-center pt-20 font-black text-7xl text-darkGreen ">{module?.title}</h2>
-      <div className="flex p-20 pt-10 gap-x-20">
+      <div className="flex p-20 pb-32 pt-10 gap-x-20">
         {module?.imageButtons.map((imageButton, i) => (
           <div key={i} className="group  relative rounded">
             <a href={imageButton.link} className="w-full">
