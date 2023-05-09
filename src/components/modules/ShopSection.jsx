@@ -1,3 +1,5 @@
+import CustomImage from "../CustomImage";
+
 export default function ShopSection({ module }) {
   console.log(module);
   return (
@@ -11,7 +13,7 @@ export default function ShopSection({ module }) {
               <h3 className="opacity-0 group-hover:opacity-100 p-4 absolute z-10 bottom-0 left-0 font-bold text-2xl text-yellowAccent transition duration-300">
                 {imageButton.title}
               </h3>
-              <img src={imageButton.image.url} alt="" className="rounded" />
+              <CustomImage src={imageButton.image.url} alt="" className="rounded" />
             </a>
           </div>
         ))}

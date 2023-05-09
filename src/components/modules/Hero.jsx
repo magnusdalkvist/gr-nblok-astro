@@ -1,9 +1,10 @@
+import CustomImage from "../CustomImage";
 import RenderBlocks from "../RenderBlocks";
 
 export default function Hero({ module }) {
   return (
     <div className="w-full h-screen relative">
-      <img
+      <CustomImage
         src={module?.backgroundImage?.url}
         alt=""
         className="object-cover inset-0 absolute h-full w-full"

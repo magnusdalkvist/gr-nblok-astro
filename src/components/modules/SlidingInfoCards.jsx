@@ -1,3 +1,5 @@
+import CustomImage from "../CustomImage";
+
 export default function SlidingInfoCards({ module }) {
   // console.log(module);
   return (
@@ -6,7 +8,7 @@ export default function SlidingInfoCards({ module }) {
       <div className="flex">
         {module?.cards.map((card, i) => (
           <div key={i} className="">
-            <img src={card.image.url} alt="" className="rounded-sm" />
+            <CustomImage src={card.image.url} alt="" className="rounded-sm" />
             <div>
               <h2>{card.title}</h2>
               <h3>{card.subtitle}</h3>
