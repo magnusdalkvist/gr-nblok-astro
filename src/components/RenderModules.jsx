@@ -2,6 +2,7 @@ import Hero from "./modules/Hero";
 import ShopSection from "./modules/ShopSection";
 import SlidingInfoCards from "./modules/SlidingInfoCards";
 import NumberedInfoList from "./modules/NumberedInfoList";
+import Events from "./modules/events";
 
 export default function RenderModules({ modules }) {
   return (
@@ -23,6 +24,8 @@ function Module({ module }) {
       return <ShopSection module={module} />;
     case "module.numberedInfoList":
       return <NumberedInfoList module={module} />;
+    case "module.events":
+      return <Events module={module} />;
     default:
       return null;
   }
