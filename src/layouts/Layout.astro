@@ -4,7 +4,6 @@ export interface Props {
 }
 
 const { title } = Astro.props;
-const location = window.location.pathname;
 ---
 
 <!DOCTYPE html>
@@ -14,7 +13,7 @@ const location = window.location.pathname;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="stylesheet" href="../styles/global.css" />
-    <title>{location != "/" ? "Grøn Blok - " + title : title}</title>
+    <title>{title}</title>
   </head>
   <body>
     <slot />

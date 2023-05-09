@@ -1,4 +1,4 @@
-import { groq, useSanityClient } from "astro-sanity";
+import { useSanityClient } from "astro-sanity";
 import { ARTICLE_QUERY_SANITY, HOME_QUERY_SANITY, PAGE_QUERY_SANITY } from "./queries";
 
 export async function getArticle(slug) {
